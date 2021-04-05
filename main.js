@@ -80,11 +80,16 @@ function priStiskuKlavesy(akce) {
   naselMinci();
 }
 
-function mute(){
-  if (hudba.muted == false) {
-    hudba.muted = true;
+let zvuk = document.getElementsByTagName('audio');
+function mute() {
+  if (zvuk[0].volume > 0) {
+    for (let a = 0; a < zvuk.length; a++) {
+      zvuk[a].volume = 0;
+    }
   } else {
-    hudba.muted = false;
+    for (let a = 0; a < zvuk.length; a++) {
+      zvuk[a].volume = 1.0;
+    }
   }
 }
 
